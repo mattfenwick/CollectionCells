@@ -14,7 +14,7 @@ class Cell: UICollectionViewCell {
     @IBOutlet weak var myButton: UIButton!
     @IBOutlet weak var myLabel: UILabel!
 
-    private (set) var disposeBag: DisposeBag! = DisposeBag()
+    private (set) var disposeBag: DisposeBag = DisposeBag()
 
     override func prepareForReuse() {
         print("prepare for reuse -- \(self)")
