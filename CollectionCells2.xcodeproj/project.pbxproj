@@ -22,7 +22,6 @@
 		4186A14E1E58A0A8007A0C96 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4186A13E1E589D44007A0C96 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4186A14F1E58A0A8007A0C96 /* RxDataSources.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4186A13F1E589D44007A0C96 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4186A1501E58A0A8007A0C96 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4186A1401E589D44007A0C96 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4186A1521E58A1EB007A0C96 /* CollectionViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4186A1511E58A1EB007A0C96 /* CollectionViewWrapper.swift */; };
 		4186A1541E58A42F007A0C96 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4186A1531E58A42F007A0C96 /* CellModel.swift */; };
 		4186A1571E58A474007A0C96 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4186A1551E58A474007A0C96 /* Cell.swift */; };
 		4186A1581E58A474007A0C96 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4186A1561E58A474007A0C96 /* Cell.xib */; };
@@ -86,7 +85,6 @@
 		4186A1471E589F38007A0C96 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		4186A1491E589F50007A0C96 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4186A14A1E589F50007A0C96 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		4186A1511E58A1EB007A0C96 /* CollectionViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewWrapper.swift; sourceTree = "<group>"; };
 		4186A1531E58A42F007A0C96 /* CellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		4186A1551E58A474007A0C96 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		4186A1561E58A474007A0C96 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				4186A1471E589F38007A0C96 /* FlowController.swift */,
 				4186A1491E589F50007A0C96 /* RootViewController.swift */,
 				4186A14A1E589F50007A0C96 /* RootViewController.xib */,
-				4186A1511E58A1EB007A0C96 /* CollectionViewWrapper.swift */,
 				4186A1531E58A42F007A0C96 /* CellModel.swift */,
 				4186A1551E58A474007A0C96 /* Cell.swift */,
 				4186A1561E58A474007A0C96 /* Cell.xib */,
@@ -342,7 +339,6 @@
 				4186A15C1E5B2D1A007A0C96 /* RootPresenter.swift in Sources */,
 				4186A1571E58A474007A0C96 /* Cell.swift in Sources */,
 				4186A14B1E589F50007A0C96 /* RootViewController.swift in Sources */,
-				4186A1521E58A1EB007A0C96 /* CollectionViewWrapper.swift in Sources */,
 				4186A1481E589F38007A0C96 /* FlowController.swift in Sources */,
 				4186A1541E58A42F007A0C96 /* CellModel.swift in Sources */,
 			);

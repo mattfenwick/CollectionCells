@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
+private let cvReuseIdentifier = "CollectionViewCell"
 private let addedReuseIdentifier = "AddTableViewCell"
 private let removedReuseIdentifier = "RemoveTableViewCell"
 
@@ -34,10 +35,12 @@ class RootViewController: UIViewController {
 
     // MARK: private
 
-    private var wrapper: CollectionViewWrapper!
     private let disposeBag = DisposeBag()
     private let addedModels: Driver<[CellModel]>
     private let removedModels: Driver<[CellModel]>
+
+    private let sections: Driver<[AnimatableSectionModel<String, CellModel>]>
+    private let dataSource = RxCollectionViewSectionedAnimatedDataSource<AnimatableSectionModel<String, CellModel>>()
 
     private let addSections: Driver<[AnimatableSectionModel<String, CellModel>]>
     private let addDataSource = RxTableViewSectionedReloadDataSource<AnimatableSectionModel<String, CellModel>>()
@@ -50,6 +53,8 @@ class RootViewController: UIViewController {
     init(addedModels: Driver<[CellModel]>, removedModels: Driver<[CellModel]>) {
         self.addedModels = addedModels
         self.removedModels = removedModels
+
+        sections = addedModels.map { items in [AnimatableSectionModel(model: "", items: items)] }
 
         addSections = addedModels.map { models in [AnimatableSectionModel(model: "", items: models)] }
         addDataSource.configureCell = RootViewController.configureAddCell
@@ -69,6 +74,13 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView.register(UINib(nibName: "Cell", bundle: Bundle(for: Cell.self)),
+                                forCellWithReuseIdentifier: cvReuseIdentifier)
+        dataSource.configureCell = self.configureCollectionViewCell
+        sections
+            .drive(collectionView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+
         addTableView.register(UITableViewCell.self, forCellReuseIdentifier: addedReuseIdentifier)
         addSections
             .drive(addTableView.rx.items(dataSource: addDataSource))
@@ -79,20 +91,7 @@ class RootViewController: UIViewController {
             .drive(removeTableView.rx.items(dataSource: removeDataSource))
             .addDisposableTo(disposeBag)
 
-        wrapper = CollectionViewWrapper(collectionView: collectionView, itemsDriver: addedModels)
-
         // boilerplate
-        wrapper.tap
-            .subscribe(onNext: { tap in
-                print("wrapper tap: \(tap)")
-            })
-            .addDisposableTo(disposeBag)
-
-        wrapper.tap
-            .map { model in (CellAction.remove, model) }
-            .subscribe(onNext: didTapItemSubject.onNext)
-            .addDisposableTo(disposeBag)
-
         addTableView.rx.modelSelected(CellModel.self)
             .map { model in (CellAction.remove, model) }
             .subscribe(didTapItemSubject)
@@ -114,11 +113,24 @@ class RootViewController: UIViewController {
     }
     
     private static func configureRemoveCell(dataSource: TableViewSectionedDataSource<AnimatableSectionModel<String, CellModel>>,
-                                         tableView: UITableView,
-                                         indexPath: IndexPath,
-                                         item: CellModel) -> UITableViewCell {
+                                            tableView: UITableView,
+                                            indexPath: IndexPath,
+                                            item: CellModel) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: removedReuseIdentifier, for: indexPath)
         cell.textLabel?.text = item.text
+        return cell
+    }
+
+    private func configureCollectionViewCell(dataSource: CollectionViewSectionedDataSource<AnimatableSectionModel<String, CellModel>>,
+                                             collectionView: UICollectionView,
+                                             indexPath: IndexPath,
+                                             item: CellModel) -> Cell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cvReuseIdentifier, for: indexPath) as! Cell
+        cell.myLabel.text = item.text
+        cell.myButton.rx.tap
+            .map { _ in (CellAction.remove, item) }
+            .subscribe(onNext: didTapItemSubject.onNext)
+            .addDisposableTo(cell.disposeBag)
         return cell
     }
 
