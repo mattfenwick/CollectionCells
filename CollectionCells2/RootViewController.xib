@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="CollectionCells2" customModuleProvider="target">
+            <connections>
+                <outlet property="addTableView" destination="cQN-Gm-dIS" id="WfS-6w-Tzd"/>
+                <outlet property="collectionView" destination="jK0-x6-9wq" id="ODk-mX-kuE"/>
+                <outlet property="removeTableView" destination="nav-un-ULa" id="UJc-dF-8ZE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cQN-Gm-dIS">
+                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="324"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nav-un-ULa">
+                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="324"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jK0-x6-9wq" customClass="CellsCollectionView" customModule="CollectionCells2" customModuleProvider="target">
+                    <rect key="frame" x="-0.5" y="324" width="375" height="323"/>
+                    <color key="backgroundColor" red="1" green="0.075929309550000004" blue="0.16431818810000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pek-ih-Hch">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cQN-Gm-dIS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BoS-cu-B9g"/>
+                <constraint firstItem="jK0-x6-9wq" firstAttribute="top" secondItem="cQN-Gm-dIS" secondAttribute="bottom" id="HqV-1K-Yzb"/>
+                <constraint firstItem="cQN-Gm-dIS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hwd-H2-nsb"/>
+                <constraint firstItem="jK0-x6-9wq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="LOW-Kz-7FP"/>
+                <constraint firstItem="nav-un-ULa" firstAttribute="width" secondItem="cQN-Gm-dIS" secondAttribute="width" id="O8h-5d-6rz"/>
+                <constraint firstItem="nav-un-ULa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VdP-fp-OwS"/>
+                <constraint firstAttribute="trailing" secondItem="nav-un-ULa" secondAttribute="trailing" id="XMZ-G3-dHI"/>
+                <constraint firstItem="nav-un-ULa" firstAttribute="height" secondItem="cQN-Gm-dIS" secondAttribute="height" id="ZTD-uV-bOE"/>
+                <constraint firstItem="jK0-x6-9wq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fam-pH-rdk"/>
+                <constraint firstAttribute="bottom" secondItem="jK0-x6-9wq" secondAttribute="bottom" constant="20" id="ulB-8S-nQf"/>
+                <constraint firstItem="jK0-x6-9wq" firstAttribute="height" secondItem="cQN-Gm-dIS" secondAttribute="height" id="uw5-Jg-5g6"/>
+                <constraint firstItem="nav-un-ULa" firstAttribute="leading" secondItem="cQN-Gm-dIS" secondAttribute="trailing" id="xff-jX-mEi"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
